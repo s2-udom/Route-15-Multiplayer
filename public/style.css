@@ -1,0 +1,496 @@
+
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(7, 50px); /* Same as the game grid */
+    gap: 5px;
+    position: absolute;
+    right: 590px;
+    top: 200px;
+    
+}
+.grid-container{
+        position: absolute;
+        top: 200px; /* Adjust for positioning */
+        left: 570px; /* Adjust for positioning */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+}
+
+.landing-container {
+    position: absolute;
+    top: 200px; /* Adjust for positioning */
+    left: 570px; /* Adjust for positioning */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#landing-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 50px); /* Same as the game grid */
+    gap: 5px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.838);
+    color: black;
+}
+
+
+button{
+    margin-top: 600px;
+    margin-left: -380px;
+}
+
+/* Cells that display '1' should be light blue */
+.cell[data-content="1"] {
+    background-color: lightblue;
+}
+
+/* Cells that display '2' should be light green */
+.cell[data-content="2"] {
+    background-color: lightgreen;
+}
+
+/* Cells displaying 'X' should have no background color */
+.cell[data-content="X"] {
+    background-color: rgba(255, 255, 255, 0.838);
+}
+
+/* Routed cells should be purple, overriding other colors */
+.cell.routed {
+    background-color: purple !important;
+}
+.finderButton {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    top: -250px;
+    right: 420px;
+    height: 60px; /* Set fixed height */
+    width: 200px; /* Set fixed width */
+
+  }
+  
+  .finderButton:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .finderButton:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .finderButton:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+  .breakerButton {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    top: -150px;
+    right: 420px;
+    height: 60px; /* Set fixed height */
+    width: 200px; /* Set fixed width */
+
+  }
+  
+  .breakerButton:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .breakerButton:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .breakerButton:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  
+  .fixed-header { 
+    position: absolute;
+    top: 225px;
+    right: 400px;
+} 
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px; /* Adjust width as needed */
+    height: 100vh; /* Full height */
+    background-color: #222; /* Dark background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    
+}
+
+/* Route 15 Title */
+.logo {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* Navigation Buttons */
+.nav-link {
+    color: white;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+.waiting-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(0, 0, 0, 0.3); /* Darker transparent border */
+    border-top: 6px solid #000; /* Solid black for contrast */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#queue-status {
+    margin-top: 20px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+/* Pop-up styles */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Ensures it stays in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered rectangle */
+.popup-content {
+  background: white;
+  width: 500px; /* Set width */
+  height: 250px; /* Set height */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Play Again button */
+#playAgainButton {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #bcbcbc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#playAgainButton:hover {
+  background-color: #0056b3;
+}
+#timers {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.timer-box {
+    padding: 10px;
+    border: 2px solid #333;
+    text-align: center;
+    width: 120px;
+    background-color: #f8f9fa;
+}
+
+#finder-timer{
+position: absolute;
+top: 100px;
+left: 400px;
+
+}
+
+#breaker-timer{
+  position: absolute;
+  top: 194px;
+  left: 400px;
+
+
+}
+#finder-time {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#breaker-time {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+#endTurnButton {
+    position: absolute;
+    align-items: center;
+    background-color: #fff;
+    border: 0.5px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    top: 50px;
+    right: 588px;
+    width: 384px;
+    height: 60px;
+  }
+  
+  #endTurnButton:focus {
+    color: #171e29;
+  }
+  
+  #endTurnButton:hover {
+    border-color: purple;
+    color: purple;
+    fill: purple;
+  }
+  #endTurnButton:active {
+    border-color: purple;
+    color:purple;
+    fill: purple;
+  }
+  
+  @media (min-width: 768px) {
+    .button-59 {
+      min-width: 170px;
+    }
+  }
+  #findRouteButton {
+    position: absolute;
+    align-items: center;
+    background-color: #fff;
+    border: 0.5px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    top: -300px;
+    right: 300px;
+    width: 150px;
+    height: 60px;
+  }
+  
+  #findRouteButton:focus {
+    color: #171e29;
+  }
+  
+  #findRouteButton:hover {
+    border-color: purple;
+    color: purple;
+    fill: purple;
+  }
+  #findRouteButton:active {
+    border-color: purple;
+    color:purple;
+    fill: purple;
+  }
+  
+  @media (min-width: 768px) {
+    .button-59 {
+      min-width: 170px;
+    }
+  }
+  #verifyRouteButton {
+    position: absolute;
+    align-items: center;
+    background-color: #fff;
+    border: 0.5px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.8px;
+    line-height: 24px;
+    min-width: 140px;
+    outline: 0;
+    padding: 0 17px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    top: -210px;
+    right: 300px;
+    width: 150px;
+    height: 60px;
+    
+  }
+  
+  #verifyRouteButton:focus {
+    color: #171e29;
+  }
+  
+  #verifyRouteButton:hover {
+    border-color: purple;
+    color: purple;
+    fill: purple;
+  }
+  #verifyRouteButton:active {
+    border-color: purple;
+    color:purple;
+    fill: purple;
+  }
+  
+  @media (min-width: 768px) {
+    .button-59 {
+      min-width: 170px;
+    }
+  }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route 15</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="sidebar">
+        <h1 class="logo">ROUTE 15</h1>
+        <p class="nav-link" onclick="window.location.href='index.html';">Home</p>
+        <p class="nav-link" onclick="navigateTo('tutorial')">Tutorial</p>
+    </div>
+    
+    
+    
+    <div class="landing-container">
+        <div id="landing-grid"></div>
+    </div>
+    
+    <div>
+        <h1 class = "fixed-header">Choose Role...</h1>
+    <button class="finderButton" id="finderButton">Route-Finder</button>
+    <button class="breakerButton" id="breakerButton">Route-Breaker</button>
+    </div>
+    
+
+<div id="queue-status" style="display:none;"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="landing.js"></script>
+</body>
+</html>
